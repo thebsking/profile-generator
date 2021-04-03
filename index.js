@@ -64,6 +64,20 @@ const questionsIntern = [
     }
 ]
 
+function newEngineer() {
+    inquirer
+        .prompt(questionsEng)
+        .then((data)=> {
+            const manager = new Engineer(data.empName, data.empId, data.empEmail, data.github);
+            console.log(manager)
+            newEmployee(); 
+        })
+}
+
+function newIntern() {
+
+}
+
 function newEmployee() {
     inquirer
         .prompt({name:'employeeType', type:'list', message:'Would you like to add another employee?',choices:['Engineer', 'Intern','No']})
