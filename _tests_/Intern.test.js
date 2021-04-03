@@ -1,26 +1,31 @@
-const Employee = require('../lib/employee');
+const Intern = require('../lib/intern');
 
 describe('Employee class', () => {
     describe('getName', () => {
         it('getName returns employee name', () => {
-            expect(new Employee('David', '002', 'dave@email.com').getName()).toBe('David')
+            expect(new Intern('David', '002', 'dave@email.com', 'Ohio State').getName()).toBe('David')
         })
     })
     
     describe('getId', () => {
         it('getId returns employee id', () => {
-            expect(new Employee('David', '002', 'dave@email.com').getId()).toBe('002')
+            expect(new Intern('David', '002', 'dave@email.com', 'Ohio State').getId()).toBe('002')
         })    
     })
 
     describe('getEmail', () => {
         it('getEmail returns employee email', () => {
-            expect(new Employee('David', '002', 'dave@email.com').getEmail()).toBe('dave@email.com')
+            expect(new Intern('David', '002', 'dave@email.com', 'Ohio State').getEmail()).toBe('dave@email.com')
         })    
     })
     describe('getRole', ()=> {
-        it('getRole returns employee', () => {
-            expect(new Employee('David', '002', 'dave@email.com').getRole()).toBe('Employee')
+        it('getRole returns intern', () => {
+            expect(new Intern('David', '002', 'dave@email.com', 'Ohio State').getRole()).toBe('Intern')
+        })
+    })
+    describe('getSchool', ()=> {
+        it('getSchool returns school', () => {
+            expect(new Intern('David', '002', 'dave@email.com', 'Ohio State').getSchool()).toBe('Ohio State')
         })
     })
 
