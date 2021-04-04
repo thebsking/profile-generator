@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+}
+.jumbotron {
+    text-align: center;
+    background-color: blue;
+    color: white;
+    border-radius: 0;
+}
+ul {
+    list-style: none;
+    text-indent: -20%;
+}
+li {
+    text-align: left;
+    margin: 2px;
+}
+h3 {
+    font-size: large;
+}
+#team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    margin: 10px;
+}
