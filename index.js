@@ -8,7 +8,7 @@ const Manager = require('./lib/manager')
 const Engineer = require('./lib/engineer')
 
 //inquirer questions
-const questionsMgr =[
+const questionsMgr = [
     {
         type: 'input',
         message: `Please enter the Manager's name`,
@@ -28,7 +28,7 @@ const questionsMgr =[
         type: 'input',
         message: `Please enter the Manager's office number`,
         name: 'mgrOffice'
-    },    
+    },
 ]
 const questionsAll = [
     {
@@ -48,7 +48,7 @@ const questionsAll = [
     },
 ]
 const questionsEng = [
-    ... questionsAll,
+    ...questionsAll,
     {
         type: 'input',
         name: 'github',
@@ -67,49 +67,70 @@ const questionsIntern = [
 function newEngineer() {
     inquirer
         .prompt(questionsEng)
-        .then((data)=> {
+        .then((data) => {
             const engineer = new Engineer(data.empName, data.empId, data.empEmail, data.github);
             console.log(engineer)
-            newEmployee(); 
+            newEmployee();
         })
 }
 
 function newIntern() {
     inquirer
         .prompt(questionsIntern)
-        .then((data)=> {
+        .then((data) => {
             const intern = new Intern(data.empName, data.empId, data.empEmail, data.school);
             console.log(intern)
-            newEmployee(); 
+            newEmployee();
         })
 }
 
 function newEmployee() {
     inquirer
-        .prompt({name:'employeeType', type:'list', message:'Would you like to add another employee?',choices:['Engineer', 'Intern','No']})
-        .then((data)=>{
+        .prompt({ name: 'employeeType', type: 'list', message: 'Would you like to add another employee?', choices: ['Engineer', 'Intern', 'No'] })
+        .then((data) => {
             console.log(data.employeeType)
-            switch (data.employeeType){
+            switch (data.employeeType) {
                 case 'Engineer':
                     newEngineer();
                     break;
                 case 'Intern':
                     newIntern();
                     break;
-                default: 
+                default:
                     return;
 
             }
         })
 };
 
+function newHtml(data) {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+    `
+}
+
+function addHtml(data) {
+
+}
+
 function init() {
     inquirer
         .prompt(questionsMgr)
-        .then((data)=> {
+        .then((data) => {
             const manager = new Manager(data.mgrName, data.mgrId, data.mgrEmail, data.mgrOffice);
             console.log(manager)
-            newEmployee(); 
+            newEmployee();
         })
 }
 
