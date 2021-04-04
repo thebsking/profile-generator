@@ -48,7 +48,7 @@ const questionsAll = [
     },
 ]
 const questionsEng = [
-    ...[questionsAll],
+    ... questionsAll,
     {
         type: 'input',
         name: 'github',
@@ -56,7 +56,7 @@ const questionsEng = [
     }
 ]
 const questionsIntern = [
-    ...[questionsAll],
+    ...questionsAll,
     {
         name: 'school',
         type: 'input',
@@ -88,7 +88,7 @@ function newEmployee() {
     inquirer
         .prompt({name:'employeeType', type:'list', message:'Would you like to add another employee?',choices:['Engineer', 'Intern','No']})
         .then((data)=>{
-            console.log(data)
+            console.log(data.employeeType)
             switch (data.employeeType){
                 case 'Engineer':
                     newEngineer();
