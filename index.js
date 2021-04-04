@@ -69,7 +69,8 @@ function newEngineer() {
         .prompt(questionsEng)
         .then((data) => {
             const engineer = new Engineer(data.empName, data.empId, data.empEmail, data.github);
-            console.log(engineer)
+            
+            engHtml(engineer)
             newEmployee();
         })
 }
@@ -79,7 +80,8 @@ function newIntern() {
         .prompt(questionsIntern)
         .then((data) => {
             const intern = new Intern(data.empName, data.empId, data.empEmail, data.school);
-            console.log(intern)
+            
+            internHtml(intern)
             newEmployee();
         })
 }
@@ -88,7 +90,7 @@ function newEmployee() {
     inquirer
         .prompt({ name: 'employeeType', type: 'list', message: 'Would you like to add another employee?', choices: ['Engineer', 'Intern', 'No'] })
         .then((data) => {
-            console.log(data.employeeType)
+            
             switch (data.employeeType) {
                 case 'Engineer':
                     newEngineer();
@@ -180,7 +182,8 @@ function init() {
         .prompt(questionsMgr)
         .then((data) => {
             const manager = new Manager(data.mgrName, data.mgrId, data.mgrEmail, data.mgrOffice);
-            console.log(manager)
+            
+            newHtml(manager);
             newEmployee();
         })
 }
