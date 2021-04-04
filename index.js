@@ -111,17 +111,68 @@ function newHtml(data) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
         <title>Document</title>
     </head>
     <body>
-        
+        <div class="jumbotron">
+            <h1>My Team</h1>
+        </div>
+        <section id="team-cards">
+            <div class="card">
+                <div class="card-header>
+                    <h2>${data.mgrName}</h2>
+                    <h3>Manager</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>ID: ${data.mgrId}</li>
+                        <li>Email: <a href="mailto:${data.mgrEmail}">${data.mgrEmail}</a></li>
+                        <li>Office number: ${data.mgrOffice}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </body>
     </html>
     `
 }
 
-function addHtml(data) {
+function engHtml(data) {
+    return `
+    <div class="card">
+                <div class="card-header>
+                    <h2>${data.empName}</h2>
+                    <h3>Engineer</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>ID: ${data.empId}</li>
+                        <li>Email: <a href="mailto:${data.empEmail}">${data.empEmail}</a></li>
+                        <li>Github: <a href="https://github.com/${data.github}>${data.github}</a></li>
+                    </ul>
+                </div>
+            </div>
+    `
+}
 
+function internHtml(data) {
+    return `
+    <div class="card">
+                <div class="card-header>
+                    <h2>${data.empName}</h2>
+                    <h3>Intern</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>ID: ${data.empId}</li>
+                        <li>Email: <a href="mailto:${data.empEmail}">${data.empEmail}</a></li>
+                        <li>School: ${data.school}</a></li>
+                    </ul>
+                </div>
+            </div>
+    `
 }
 
 function init() {
