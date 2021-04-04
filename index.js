@@ -99,14 +99,17 @@ function newEmployee() {
                     newIntern();
                     break;
                 default:
-                    return;
+                    fs.appendFile('./dist/index.html', `
+                            </section>
+                        </body>
+                    </html>`, (err)=> {if(err) throw err});
 
             }
         })
 };
 
 function newHtml(data) {
-    return `
+    fs.writeFile('./dist/index.html', `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -123,58 +126,58 @@ function newHtml(data) {
         </div>
         <section id="team-cards">
             <div class="card">
-                <div class="card-header>
-                    <h2>${data.mgrName}</h2>
+                <div class="card-header">
+                    <h2>${data.name}</h2>
                     <h3>Manager</h3>
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li>ID: ${data.mgrId}</li>
-                        <li>Email: <a href="mailto:${data.mgrEmail}">${data.mgrEmail}</a></li>
-                        <li>Office number: ${data.mgrOffice}</li>
+                        <li>ID: ${data.id}</li>
+                        <li>Email: <a href="mailto:${data.email}">${data.email}</a></li>
+                        <li>Office number: ${data.officeNumber}</li>
                     </ul>
                 </div>
             </div>
-        </section>
-    </body>
-    </html>
-    `
+        
+    `, (err)=> {if (err) throw err})
 }
 
 function engHtml(data) {
-    return `
+    const htmlToAdd = `
     <div class="card">
-                <div class="card-header>
-                    <h2>${data.empName}</h2>
+                <div class="card-header">
+                    <h2>${data.name}</h2>
                     <h3>Engineer</h3>
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li>ID: ${data.empId}</li>
-                        <li>Email: <a href="mailto:${data.empEmail}">${data.empEmail}</a></li>
-                        <li>Github: <a href="https://github.com/${data.github}>${data.github}</a></li>
+                        <li>ID: ${data.id}</li>
+                        <li>Email: <a href="mailto:${data.email}">${data.email}</a></li>
+                        <li>Github: <a href="https://github.com/${data.github}"> ${data.github} </a></li>
                     </ul>
                 </div>
             </div>
-    `
+    `;
+   fs.appendFile('./dist/index.html', htmlToAdd, (err)=> {if(err) throw err})
 }
 
 function internHtml(data) {
-    return `
+    const htmlToAdd =  `
     <div class="card">
-                <div class="card-header>
-                    <h2>${data.empName}</h2>
+                <div class="card-header">
+                    <h2>${data.name}</h2>
                     <h3>Intern</h3>
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li>ID: ${data.empId}</li>
-                        <li>Email: <a href="mailto:${data.empEmail}">${data.empEmail}</a></li>
+                        <li>ID: ${data.id}</li>
+                        <li>Email: <a href="mailto:${data.email}">${data.email}</a></li>
                         <li>School: ${data.school}</a></li>
                     </ul>
                 </div>
             </div>
-    `
+    `;
+    fs.appendFile('./dist/index.html', htmlToAdd, (err)=>{if(err) throw err})
 }
 
 function init() {
