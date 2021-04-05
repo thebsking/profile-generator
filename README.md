@@ -6,7 +6,7 @@ A simple CLI program to create a webpage that easily displays a team's informati
 ## Links
 Github repository: https://github.com/thebsking/profile-generator
 
-Video overview: 
+Video overview: https://drive.google.com/file/d/1eDFCXRvjh4jCC8IHRoaW0zk6zKN9q6Sh/view
 
 ## Technologies Used
 JavaScript, Node.js, HTML, CSS, jest, Inquirer
